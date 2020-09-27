@@ -12,20 +12,27 @@ export const itemInfos: ItemInfo[] = [
         sort: 0,
         name: '黑咖啡',
         price: 36,
-        imgName: 'kafei1'
+        imgName: 'cafe'
     },
     {
-        id: 'fafei1',
+        id: 'fafei2',
         sort: 0,
         name: '黑咖啡',
-        price: 36,
-        imgName: 'kafei1'
+        price: 23,
+        imgName: 'cafe'
     },
     {
-        id: 'fafei1',
+        id: 'fafei3',
         sort: 0,
         name: '黑咖啡',
-        price: 36,
-        imgName: 'kafei1'
+        price: 34,
+        imgName: 'cafe'
+    },
+    {
+        id: 'fafei4',
+        sort: 0,
+        name: '黑咖啡',
+        price: 34,
+        imgName: 'cafe'
     }
 ];

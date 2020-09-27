@@ -48,6 +48,9 @@ export default class Business extends ListViewDelegate {
 
     resDict: { [key: string]: cc.SpriteFrame } = {};
 
+    @property(ListView)
+    listview: ListView = null;
+
     @property(cc.Prefab)
     itemCellPrefab: cc.Prefab = null;
 
@@ -59,11 +62,13 @@ export default class Business extends ListViewDelegate {
                 const name = url.split('/')[1];
                 this.resDict[name] = frame;
             }
+            cc.log('^_^!....', this.resDict);
+            this.listview.resetContent();
         });
     }
 
     numberOfRows(listView: ListView): number {
-        return Math.floor(itemInfos.length / 3);
+        return Math.ceil(itemInfos.length / 3);
     }
 
     cellIdForRow(listView: ListView, rowIdx: number): string {
@@ -76,7 +81,7 @@ export default class Business extends ListViewDelegate {
     }
 
     setCellForRow(listView: ListView, rowIdx: number, cell: ItemCell): void {
-        const realRowIdx = Math.floor(rowIdx / 3);
+        const realRowIdx = rowIdx * 3;
         const data0 = itemInfos[realRowIdx];
         const data1 = itemInfos[realRowIdx + 1];
         const data2 = itemInfos[realRowIdx + 2];

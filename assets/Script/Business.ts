@@ -4,6 +4,11 @@
  */
 const { ccclass, property } = cc._decorator;
 
+import { ItemCell } from './ItemCell';
+import { itemInfos } from './ItemInfo';
+import { ListView } from './ListView';
+import { ListViewCell } from './ListViewCell';
+import { ListViewDelegate } from './ListViewDelegate';
 import PrinterManager from './PrinterManager';
 
 //标签说明：
@@ -37,9 +42,53 @@ const printContent = `
 `;
 
 @ccclass
-export default class Business extends cc.Component {
+export default class Business extends ListViewDelegate {
     @property(PrinterManager)
     printerMgr: PrinterManager = null;
+
+    resDict: { [key: string]: cc.SpriteFrame } = {};
+
+    @property(cc.Prefab)
+    itemCellPrefab: cc.Prefab = null;
+
+    onLoad() {
+        cc.loader.loadResDir('items', cc.SpriteFrame, (error: Error, resource: any[], urls: string[]) => {
+            for (let index = 0; index < resource.length; index++) {
+                const frame = resource[index];
+                const url = urls[index];
+                const name = url.split('/')[1];
+                this.resDict[name] = frame;
+            }
+        });
+    }
+
+    numberOfRows(listView: ListView): number {
+        return Math.floor(itemInfos.length / 3);
+    }
+
+    cellIdForRow(listView: ListView, rowIdx: number): string {
+        return 'i';
+    }
+    createCellForRow(listView: ListView, rowIdx: number, cellId: string): ListViewCell {
+        const cell = cc.instantiate(this.itemCellPrefab).getComponent(ItemCell);
+        cell.init();
+        return cell;
+    }
+
+    setCellForRow(listView: ListView, rowIdx: number, cell: ItemCell): void {
+        const realRowIdx = Math.floor(rowIdx / 3);
+        const data0 = itemInfos[realRowIdx];
+        const data1 = itemInfos[realRowIdx + 1];
+        const data2 = itemInfos[realRowIdx + 2];
+        if (data0) cell.setData0(this.resDict[data0.imgName], data0.name, data0.price);
+        else cell.setData0(null, null, 0);
+        if (data1) cell.setData1(this.resDict[data1.imgName], data1.name, data1.price);
+        else cell.setData1(null, null, 0);
+        if (data2) cell.setData2(this.resDict[data2.imgName], data2.name, data2.price);
+        else cell.setData2(null, null, 0);
+    }
+
+    // -----------------------------------------------------------------
 
     addPrinter() {
         this.printerMgr.addPrinter();

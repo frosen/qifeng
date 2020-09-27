@@ -5,18 +5,10 @@
  */
 
 const { ccclass, property, executeInEditMode } = cc._decorator;
-import { BaseController } from './BaseController';
 
 @ccclass
 @executeInEditMode
 export class ListViewCell extends cc.Component {
-    get ctrlr(): BaseController {
-        // @ts-ignore
-        if (!this._ctrlr) this._ctrlr = window.baseCtrlr;
-        return this._ctrlr;
-    }
-    _ctrlr: BaseController = null;
-
     curCellIdx: number = -1;
 
     onLoad() {
@@ -29,10 +21,14 @@ export class ListViewCell extends cc.Component {
     }
 
     check() {
+        // @ts-ignore
         cc.assert(this.node._prefab.root === this.node, 'cell脚本需要放在prefab的根节点');
 
+        // @ts-ignore
         this.node.name = this.node._prefab.asset.name;
+        // @ts-ignore
         const clsName = cc.js.getClassName(this.__proto__.constructor);
+        // @ts-ignore
         cc.assert(this.node.name === clsName, 'cell的prefab要和class名称一致');
 
         this.node.anchorX = 0;

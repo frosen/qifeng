@@ -43,6 +43,7 @@ export class ListView extends cc.Component {
     }
 
     onLoad() {
+        // @ts-ignore
         cc.assert(this.delegate, '未指定代理');
 
         this.scrollView = this.getComponent(cc.ScrollView);
@@ -270,6 +271,7 @@ export class ListView extends cc.Component {
 
     getUnusedCellData(rowIdx: number): { cell: ListViewCell; id: string } {
         const cellId = this.delegate.cellIdForRow(this, rowIdx);
+        // @ts-ignore
         cc.assert(cellId, `cellIdForRow获取cell id不成功：${rowIdx}`);
 
         if (!this.reuseCellsDict.hasOwnProperty(cellId)) {
@@ -280,6 +282,7 @@ export class ListView extends cc.Component {
         let unusedCell: ListViewCell = null;
         if (reuseList.length === 0) {
             unusedCell = this.delegate.createCellForRow(this, rowIdx, cellId);
+            // @ts-ignore
             cc.assert(unusedCell, `创建cell没有成功：${rowIdx}, ${cellId}`);
             unusedCell.node.parent = this.content;
         } else {

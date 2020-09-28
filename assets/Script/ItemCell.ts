@@ -23,6 +23,8 @@ export class ItemCell extends ListViewCell {
 
     subList: ItemCellSub[] = [];
 
+    dataIdx: number = 0;
+
     init() {
         const sub0 = cc.instantiate(this.subPrefab);
         sub0.parent = this.sub0;
@@ -37,29 +39,24 @@ export class ItemCell extends ListViewCell {
         this.subList.push(sub2.getComponent(ItemCellSub));
     }
 
-    setData0(frame: cc.SpriteFrame, name: string, price: number) {
-        this.setData(0, frame, name, price);
-    }
-
-    setData1(frame: cc.SpriteFrame, name: string, price: number) {
-        this.setData(1, frame, name, price);
-    }
-
-    setData2(frame: cc.SpriteFrame, name: string, price: number) {
-        this.setData(2, frame, name, price);
-    }
-
-    setData(idx: number, frame: cc.SpriteFrame, name: string, price: number) {
-        const sub = this.subList[idx];
+    setData(subIdx: number, dataIdx: number, frame: cc.SpriteFrame, name: string, price: number) {
+        const sub = this.subList[subIdx];
         if (frame) {
             sub.node.opacity = 255;
             sub.node.scaleX = 1;
             sub.sp.spriteFrame = frame;
             sub.itemName.string = name;
             sub.price.string = '￥' + String(price);
+            sub.node.on(cc.Node.EventType.TOUCH_END, () => {
+                this.onClickSub(dataIdx);
+            });
         } else {
             sub.node.opacity = 0;
             sub.node.scaleX = 0;
         }
+
+        this.dataIdx = dataIdx;
     }
+
+    onClickSub(dataIdx: number) {}
 }

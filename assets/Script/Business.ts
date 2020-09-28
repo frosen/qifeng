@@ -4,6 +4,7 @@
  */
 const { ccclass, property } = cc._decorator;
 
+import { ItemInfo } from './DataModel';
 import { ItemCell } from './ItemCell';
 import { itemInfos } from './ItemInfo';
 import { ListView } from './ListView';
@@ -22,25 +23,18 @@ import { TitleCell } from './TitleCell';
 //拼凑订单内容时可参考如下格式
 //根据打印纸张的宽度，自行调整内容的格式，可参考下面的样例格式
 const printContent = `
-<CB>测试打印</CB><BR>
-名称　　　　　 单价  数量 金额<BR>
+桌号 ##号<BR>
+
+产品种类　　　     单价     数量<BR>
 --------------------------------<BR>
-番　　　　　　 1.0    1   1.0<BR>
-番茄　　　　　 10.0   10  10.0<BR>
-番茄炒　　　　 10.0   100 100.0<BR>
-番茄炒粉　　　 100.0  100 100.0<BR>
-番茄炒粉粉　　 1000.0 1   100.0<BR>
-番茄炒粉粉粉粉 100.0  100 100.0<BR>
-番茄炒粉粉粉粉 15.0   1   15.0<BR>
-备注：快点送到xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx<BR>
+VV
 --------------------------------<BR>
-合计：xx.0元<BR>
-送货地点：xxxxxxxxxxxxxxxxx<BR>
-联系电话：138000000000<BR>
-订餐时间：2011-01-06 19:30:10<BR><BR>
-----------请扫描二维码----------
-<QR>http://www.baidu.com</QR>
+合计：$$元<BR>
+<BR>
+订餐时间：%%<BR><BR>
 `;
+
+const printLine = '番茄炒粉粉粉粉     1000.0   100 <BR>';
 
 @ccclass
 export default class Business extends ListViewDelegate {
@@ -58,7 +52,29 @@ export default class Business extends ListViewDelegate {
     @property(cc.Prefab)
     itemCellPrefab: cc.Prefab = null;
 
+    @property([cc.Label])
+    navLbls: cc.Label[] = [];
+
+    curListIdx: number = 0;
+    curTitle: string = '商品';
+    itemList: ItemInfo[] = [];
+
     onLoad() {
+        for (let index = 0; index < this.navLbls.length; index++) {
+            const lbl = this.navLbls[index];
+            const node = lbl.node;
+            node.on(cc.Node.EventType.TOUCH_START, () => {
+                node.color = cc.color(150, 150, 150);
+            });
+            node.on(cc.Node.EventType.TOUCH_END, () => {
+                node.color = cc.color(220, 220, 220);
+                this.turnList(index);
+            });
+            node.on(cc.Node.EventType.TOUCH_CANCEL, () => {
+                node.color = cc.color(220, 220, 220);
+            });
+        }
+
         cc.loader.loadResDir('items', cc.SpriteFrame, (error: Error, resource: any[], urls: string[]) => {
             for (let index = 0; index < resource.length; index++) {
                 const frame = resource[index];
@@ -66,12 +82,32 @@ export default class Business extends ListViewDelegate {
                 const name = url.split('/')[1];
                 this.resDict[name] = frame;
             }
-            this.listview.resetContent();
+            this.turnList(0);
         });
     }
 
+    turnList(idx: number) {
+        this.curListIdx = idx;
+        for (const lbl of this.navLbls) {
+            lbl.node.color = cc.color(220, 220, 220);
+            lbl.node.resumeSystemEvents(true);
+        }
+        const lbl = this.navLbls[idx];
+        this.curTitle = lbl.string;
+        lbl.node.color = cc.color(222, 181, 75);
+        lbl.node.pauseSystemEvents(true);
+        const itemList = [];
+        for (const itemInfo of itemInfos) {
+            if (itemInfo.sort === idx) {
+                itemList.push(itemInfo);
+            }
+        }
+        this.itemList = itemList;
+        this.listview.resetContent();
+    }
+
     numberOfRows(listView: ListView): number {
-        return Math.ceil(itemInfos.length / 3) + 1;
+        return Math.ceil(this.itemList.length / 3) + 1;
     }
 
     heightForRow(listView: ListView, rowIdx: number): number {
@@ -86,28 +122,34 @@ export default class Business extends ListViewDelegate {
     createCellForRow(listView: ListView, rowIdx: number, cellId: string): ListViewCell {
         if (cellId === 't') {
             const cell = cc.instantiate(this.titleCellPrefab).getComponent(TitleCell);
-            cell.setData('XXXXX');
             return cell;
         } else {
             const cell = cc.instantiate(this.itemCellPrefab).getComponent(ItemCell);
             cell.init();
+            cell.onClickSub = this.onClickSubCell.bind(this);
             return cell;
         }
     }
 
-    setCellForRow(listView: ListView, rowIdx: number, cell: ItemCell): void {
-        if (rowIdx !== 0) {
+    setCellForRow(listView: ListView, rowIdx: number, cell: ItemCell & TitleCell): void {
+        if (rowIdx === 0) {
+            cell.setData(this.curTitle);
+        } else {
             const realRowIdx = (rowIdx - 1) * 3;
-            const data0 = itemInfos[realRowIdx];
-            const data1 = itemInfos[realRowIdx + 1];
-            const data2 = itemInfos[realRowIdx + 2];
-            if (data0) cell.setData0(this.resDict[data0.imgName], data0.name, data0.price);
-            else cell.setData0(null, null, 0);
-            if (data1) cell.setData1(this.resDict[data1.imgName], data1.name, data1.price);
-            else cell.setData1(null, null, 0);
-            if (data2) cell.setData2(this.resDict[data2.imgName], data2.name, data2.price);
-            else cell.setData2(null, null, 0);
+            this.setItemCellData(cell, 0, realRowIdx);
+            this.setItemCellData(cell, 1, realRowIdx + 1);
+            this.setItemCellData(cell, 2, realRowIdx + 2);
         }
+    }
+
+    setItemCellData(cell: ItemCell, sub: number, idx: number) {
+        const data = this.itemList[idx];
+        if (data) cell.setData(sub, idx, this.resDict[data.imgName], data.name, data.price);
+        else cell.setData(sub, idx, null, null, 0);
+    }
+
+    onClickSubCell(dataIdx: number) {
+        cc.log('click cell: ', dataIdx);
     }
 
     // -----------------------------------------------------------------

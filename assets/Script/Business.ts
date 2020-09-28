@@ -10,6 +10,7 @@ import { ListView } from './ListView';
 import { ListViewCell } from './ListViewCell';
 import { ListViewDelegate } from './ListViewDelegate';
 import PrinterManager from './PrinterManager';
+import { TitleCell } from './TitleCell';
 
 //标签说明：
 //单标签:
@@ -52,6 +53,9 @@ export default class Business extends ListViewDelegate {
     listview: ListView = null;
 
     @property(cc.Prefab)
+    titleCellPrefab: cc.Prefab = null;
+
+    @property(cc.Prefab)
     itemCellPrefab: cc.Prefab = null;
 
     onLoad() {
@@ -62,35 +66,48 @@ export default class Business extends ListViewDelegate {
                 const name = url.split('/')[1];
                 this.resDict[name] = frame;
             }
-            cc.log('^_^!....', this.resDict);
             this.listview.resetContent();
         });
     }
 
     numberOfRows(listView: ListView): number {
-        return Math.ceil(itemInfos.length / 3);
+        return Math.ceil(itemInfos.length / 3) + 1;
+    }
+
+    heightForRow(listView: ListView, rowIdx: number): number {
+        if (rowIdx === 0) return 103;
+        else return 355;
     }
 
     cellIdForRow(listView: ListView, rowIdx: number): string {
-        return 'i';
+        if (rowIdx === 0) return 't';
+        else return 'i';
     }
     createCellForRow(listView: ListView, rowIdx: number, cellId: string): ListViewCell {
-        const cell = cc.instantiate(this.itemCellPrefab).getComponent(ItemCell);
-        cell.init();
-        return cell;
+        if (cellId === 't') {
+            const cell = cc.instantiate(this.titleCellPrefab).getComponent(TitleCell);
+            cell.setData('XXXXX');
+            return cell;
+        } else {
+            const cell = cc.instantiate(this.itemCellPrefab).getComponent(ItemCell);
+            cell.init();
+            return cell;
+        }
     }
 
     setCellForRow(listView: ListView, rowIdx: number, cell: ItemCell): void {
-        const realRowIdx = rowIdx * 3;
-        const data0 = itemInfos[realRowIdx];
-        const data1 = itemInfos[realRowIdx + 1];
-        const data2 = itemInfos[realRowIdx + 2];
-        if (data0) cell.setData0(this.resDict[data0.imgName], data0.name, data0.price);
-        else cell.setData0(null, null, 0);
-        if (data1) cell.setData1(this.resDict[data1.imgName], data1.name, data1.price);
-        else cell.setData1(null, null, 0);
-        if (data2) cell.setData2(this.resDict[data2.imgName], data2.name, data2.price);
-        else cell.setData2(null, null, 0);
+        if (rowIdx !== 0) {
+            const realRowIdx = (rowIdx - 1) * 3;
+            const data0 = itemInfos[realRowIdx];
+            const data1 = itemInfos[realRowIdx + 1];
+            const data2 = itemInfos[realRowIdx + 2];
+            if (data0) cell.setData0(this.resDict[data0.imgName], data0.name, data0.price);
+            else cell.setData0(null, null, 0);
+            if (data1) cell.setData1(this.resDict[data1.imgName], data1.name, data1.price);
+            else cell.setData1(null, null, 0);
+            if (data2) cell.setData2(this.resDict[data2.imgName], data2.name, data2.price);
+            else cell.setData2(null, null, 0);
+        }
     }
 
     // -----------------------------------------------------------------

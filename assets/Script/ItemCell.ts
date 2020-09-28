@@ -48,7 +48,7 @@ export class ItemCell extends ListViewCell {
             sub.itemName.string = name;
             sub.price.string = '￥' + String(price);
             sub.node.on(cc.Node.EventType.TOUCH_END, () => {
-                this.onClickSub(dataIdx);
+                this.onClickSub(dataIdx, sub.node);
             });
         } else {
             sub.node.opacity = 0;
@@ -58,5 +58,5 @@ export class ItemCell extends ListViewCell {
         this.dataIdx = dataIdx;
     }
 
-    onClickSub(dataIdx: number) {}
+    onClickSub(dataIdx: number, node: cc.Node) {}
 }

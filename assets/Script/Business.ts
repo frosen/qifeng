@@ -12,6 +12,7 @@ import { ListViewCell } from './ListViewCell';
 import { ListViewDelegate } from './ListViewDelegate';
 import PrinterManager from './PrinterManager';
 import { TitleCell } from './TitleCell';
+import { ItemCellSub } from './ItemCellSub';
 
 //标签说明：
 //单标签:
@@ -52,12 +53,20 @@ export default class Business extends ListViewDelegate {
     @property(cc.Prefab)
     itemCellPrefab: cc.Prefab = null;
 
+    @property(cc.Prefab)
+    subPrefab: cc.Prefab = null;
+
+    @property(cc.Node)
+    jumpBase: cc.Node = null;
+
     @property([cc.Label])
     navLbls: cc.Label[] = [];
 
     curListIdx: number = 0;
     curTitle: string = '商品';
     itemList: ItemInfo[] = [];
+
+    selectedItems: ItemInfo[] = [];
 
     onLoad() {
         for (let index = 0; index < this.navLbls.length; index++) {
@@ -148,8 +157,32 @@ export default class Business extends ListViewDelegate {
         else cell.setData(sub, idx, null, null, 0);
     }
 
-    onClickSubCell(dataIdx: number) {
-        cc.log('click cell: ', dataIdx);
+    onClickSubCell(dataIdx: number, node: cc.Node) {
+        const data = this.itemList[dataIdx];
+        this.selectedItems.push(data);
+
+        const subNode = cc.instantiate(this.subPrefab);
+        const pos = node.convertToWorldSpaceAR(cc.v2(-540, -960));
+        subNode.position = cc.v3(pos);
+        this.jumpBase.addChild(subNode);
+        cc.log('click cell: ', dataIdx, pos.x, pos.y);
+
+        const sub = subNode.getComponent(ItemCellSub);
+        sub.sp.spriteFrame = this.resDict[data.imgName];
+        sub.itemName.string = data.name;
+        sub.price.string = '￥' + String(data.price);
+
+        subNode.runAction(
+            cc.sequence(
+                cc.spawn(cc.jumpTo(0.6, 300 - 20, -800 + 40, 400, 1), cc.scaleTo(0.6, 0.2)),
+                cc.callFunc(() => {
+                    setTimeout(() => {
+                        subNode.removeFromParent();
+                        subNode.destroy();
+                    });
+                })
+            )
+        );
     }
 
     // -----------------------------------------------------------------

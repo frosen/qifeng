@@ -68,6 +68,12 @@ export default class Business extends ListViewDelegate {
 
     selectedItems: ItemInfo[] = [];
 
+    @property(cc.Button)
+    confirm: cc.Button = null;
+
+    @property(cc.Label)
+    itemNumLbl: cc.Label = null;
+
     onLoad() {
         for (let index = 0; index < this.navLbls.length; index++) {
             const lbl = this.navLbls[index];
@@ -83,6 +89,8 @@ export default class Business extends ListViewDelegate {
                 node.color = cc.color(220, 220, 220);
             });
         }
+
+        this.confirm.node.on(cc.Node.EventType.TOUCH_END, this.onConfirm.bind(this));
 
         cc.loader.loadResDir('items', cc.SpriteFrame, (error: Error, resource: any[], urls: string[]) => {
             for (let index = 0; index < resource.length; index++) {
@@ -184,6 +192,24 @@ export default class Business extends ListViewDelegate {
             )
         );
     }
+
+    // -----------------------------------------------------------------
+
+    update() {
+        this.checkSelectedItemNum();
+    }
+
+    checkSelectedItemNum() {
+        const num = this.selectedItems.length;
+        if (num === 0) {
+            this.itemNumLbl.node.parent.opacity = 0;
+        } else {
+            this.itemNumLbl.string = String(num > 99 ? 99 : num);
+            this.itemNumLbl.node.parent.opacity = 255;
+        }
+    }
+
+    onConfirm() {}
 
     // -----------------------------------------------------------------
 

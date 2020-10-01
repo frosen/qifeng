@@ -5,8 +5,6 @@
 
 const { ccclass, property } = cc._decorator;
 
-const WeekNames = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
-
 @ccclass
 export default class TimeUpdater extends cc.Component {
     @property(cc.Node)

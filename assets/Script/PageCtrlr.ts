@@ -6,7 +6,7 @@
 const { ccclass, property } = cc._decorator;
 
 @ccclass
-export default class TimeUpdater extends cc.Component {
+export default class PageCtrlr extends cc.Component {
     @property(cc.Node)
     page2: cc.Node = null;
 

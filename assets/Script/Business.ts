@@ -13,6 +13,9 @@ import { ListViewDelegate } from './ListViewDelegate';
 import PrinterManager from './PrinterManager';
 import { TitleCell } from './TitleCell';
 import { ItemCellSub } from './ItemCellSub';
+import FinalPanel from './FinalPanel';
+import TableIdxCtrlr from './TableIdxCtrlr';
+import TimeUpdater from './TimeUpdater';
 
 //标签说明：
 //单标签:
@@ -23,7 +26,7 @@ import { ItemCellSub } from './ItemCellSub';
 //<W></W>字体变宽一倍,"<QR></QR>"为二维码,"<BOLD></BOLD>"为字体加粗,"<RIGHT></RIGHT>"为右对齐
 //拼凑订单内容时可参考如下格式
 //根据打印纸张的宽度，自行调整内容的格式，可参考下面的样例格式
-const printContent = `
+const BasePrintContent = `
 桌号 ##号<BR>
 
 产品种类　　　     单价     数量<BR>
@@ -34,8 +37,6 @@ VV
 <BR>
 订餐时间：%%<BR><BR>
 `;
-
-const printLine = '番茄炒粉粉粉粉     1000.0   100 <BR>';
 
 @ccclass
 export default class Business extends ListViewDelegate {
@@ -66,13 +67,22 @@ export default class Business extends ListViewDelegate {
     curTitle: string = '商品';
     itemList: ItemInfo[] = [];
 
-    selectedItems: ItemInfo[] = [];
+    selectedItems: { count: number; data: ItemInfo }[] = [];
 
     @property(cc.Button)
     confirm: cc.Button = null;
 
     @property(cc.Label)
     itemNumLbl: cc.Label = null;
+
+    @property(FinalPanel)
+    finalPanel: FinalPanel = null;
+
+    @property(TableIdxCtrlr)
+    tableIdxCtrlr: TableIdxCtrlr = null;
+
+    @property(TimeUpdater)
+    timer: TimeUpdater = null;
 
     onLoad() {
         for (let index = 0; index < this.navLbls.length; index++) {
@@ -91,6 +101,7 @@ export default class Business extends ListViewDelegate {
         }
 
         this.confirm.node.on(cc.Node.EventType.TOUCH_END, this.onConfirm.bind(this));
+        this.finalPanel.init(this);
 
         cc.loader.loadResDir('items', cc.SpriteFrame, (error: Error, resource: any[], urls: string[]) => {
             for (let index = 0; index < resource.length; index++) {
@@ -167,7 +178,17 @@ export default class Business extends ListViewDelegate {
 
     onClickSubCell(dataIdx: number, node: cc.Node) {
         const data = this.itemList[dataIdx];
-        this.selectedItems.push(data);
+        let has = false;
+        for (const item of this.selectedItems) {
+            if (item.data === data) {
+                item.count++;
+                has = true;
+                break;
+            }
+        }
+        if (!has) {
+            this.selectedItems.push({ count: 1, data });
+        }
 
         const subNode = cc.instantiate(this.subPrefab);
         const pos = node.convertToWorldSpaceAR(cc.v2(-540, -960));
@@ -209,7 +230,59 @@ export default class Business extends ListViewDelegate {
         }
     }
 
-    onConfirm() {}
+    onConfirm() {
+        this.finalPanel.show();
+    }
+
+    send() {
+        let content = BasePrintContent;
+        content = content.replace('##', String(this.tableIdxCtrlr.idx));
+        content = content.replace('$$', String(this.getTotal()));
+        content = content.replace('%%', this.timer.getCurTimeStr());
+        content = content.replace('VV', this.getItemsStr());
+
+        this.print(content);
+
+        this.clear();
+    }
+
+    getTotal() {
+        let total = 0;
+        for (const item of this.selectedItems) {
+            total += item.count * item.data.price;
+        }
+        return total;
+    }
+
+    getItemsStr() {
+        let str = '';
+        for (const item of this.selectedItems) {
+            let line = '';
+            line += item.data.name;
+            const spaceCount = 14 - this.getStringLen(item.data.name);
+            for (let index = 0; index < spaceCount; index++) line += ' ';
+            line += '     ';
+            const priceStr = String(item.data.price);
+            line += priceStr;
+            line += priceStr.length === 1 ? '        ' : '       ';
+            line += String(item.count);
+            line += '<BR>\n';
+        }
+        return str;
+    }
+
+    getStringLen(str: string): number {
+        let len = 0;
+        for (let index = 0; index < str.length; index++) {
+            if (str.charCodeAt(index) > 10000) len += 2;
+            else len += 1;
+        }
+        return len;
+    }
+
+    clear() {
+        this.selectedItems.length = 0;
+    }
 
     // -----------------------------------------------------------------
 
@@ -217,7 +290,7 @@ export default class Business extends ListViewDelegate {
         this.printerMgr.addPrinter();
     }
 
-    print() {
-        this.printerMgr.print(printContent);
+    print(content: string) {
+        this.printerMgr.print(content);
     }
 }

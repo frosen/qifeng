@@ -46,10 +46,15 @@ export class ItemCell extends ListViewCell {
             sub.node.scaleX = 1;
             sub.sp.spriteFrame = frame;
             sub.itemName.string = name;
-            sub.price.string = '￥' + String(price);
-            sub.node.on(cc.Node.EventType.TOUCH_END, () => {
-                this.onClickSub(dataIdx, sub.node);
-            });
+            sub.price.string = '￥' + String(dataIdx);
+            sub.node.targetOff(sub.node);
+            sub.node.on(
+                cc.Node.EventType.TOUCH_END,
+                () => {
+                    this.onClickSub(dataIdx, sub.node);
+                },
+                sub.node
+            );
         } else {
             sub.node.opacity = 0;
             sub.node.scaleX = 0;

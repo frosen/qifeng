@@ -84,6 +84,9 @@ export default class Business extends ListViewDelegate {
     @property(TimeUpdater)
     timer: TimeUpdater = null;
 
+    @property(cc.Node)
+    toastNode: cc.Node = null;
+
     onLoad() {
         for (let index = 0; index < this.navLbls.length; index++) {
             const lbl = this.navLbls[index];
@@ -247,6 +250,8 @@ export default class Business extends ListViewDelegate {
 
         this.print(content);
 
+        this.popToast('订单已提交，\n请您稍等一下，我们尽快为您准备~');
+
         this.clear();
     }
 
@@ -287,6 +292,12 @@ export default class Business extends ListViewDelegate {
 
     clear() {
         this.selectedItems.length = 0;
+    }
+
+    popToast(str: string) {
+        this.toastNode.getComponentInChildren(cc.Label).string = str;
+        this.toastNode.stopAllActions();
+        cc.tween(this.toastNode).to(0.3, { opacity: 255 }).delay(3).to(0.3, { opacity: 0 }).start();
     }
 
     // -----------------------------------------------------------------

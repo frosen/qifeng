@@ -10,6 +10,7 @@ import { ListView } from './ListView';
 import Business from './Business';
 import { ListViewDelegate } from './ListViewDelegate';
 import { ListViewCell } from './ListViewCell';
+import { FinalCell } from './FinalCell';
 
 @ccclass
 export default class FinalPanel extends ListViewDelegate {
@@ -22,10 +23,18 @@ export default class FinalPanel extends ListViewDelegate {
     @property(cc.Label)
     totalStr: cc.Label = null;
 
+    @property(cc.Prefab)
+    finalCellPrefab: cc.Prefab = null;
+
     business: Business = null;
 
     onLoad() {
         this.node.on(cc.Node.EventType.TOUCH_END, () => {
+            this.hide();
+        });
+
+        this.btn.node.on(cc.Node.EventType.TOUCH_END, () => {
+            this.business.send();
             this.hide();
         });
     }
@@ -45,6 +54,16 @@ export default class FinalPanel extends ListViewDelegate {
         this.node.opacity = 0;
     }
 
+    update() {
+        if (this.node.scaleX > 0) {
+            let total = 0;
+            for (const itemData of this.business.selectedItems) {
+                total += itemData.count * itemData.data.price;
+            }
+            this.totalStr.string = '总价：￥' + String(total);
+        }
+    }
+
     // -----------------------------------------------------------------
 
     numberOfRows(listView: ListView): number {
@@ -56,8 +75,11 @@ export default class FinalPanel extends ListViewDelegate {
     }
 
     createCellForRow(listView: ListView, rowIdx: number, cellId: string): ListViewCell {
-        return null;
+        return cc.instantiate(this.finalCellPrefab).getComponent(FinalCell);
     }
 
-    setCellForRow(listView: ListView, rowIdx: number, cell: any): void {}
+    setCellForRow(listView: ListView, rowIdx: number, cell: FinalCell): void {
+        cc.log('STORM cc ^_^ >>>> ', rowIdx);
+        cell.setData(this.business.selectedItems[rowIdx]);
+    }
 }

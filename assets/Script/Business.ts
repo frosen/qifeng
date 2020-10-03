@@ -221,7 +221,11 @@ export default class Business extends ListViewDelegate {
     }
 
     checkSelectedItemNum() {
-        const num = this.selectedItems.length;
+        let num = 0;
+        for (const itemData of this.selectedItems) {
+            num += itemData.count;
+        }
+
         if (num === 0) {
             this.itemNumLbl.node.parent.opacity = 0;
         } else {
@@ -267,6 +271,7 @@ export default class Business extends ListViewDelegate {
             line += priceStr.length === 1 ? '        ' : '       ';
             line += String(item.count);
             line += '<BR>\n';
+            str += line;
         }
         return str;
     }
@@ -291,6 +296,7 @@ export default class Business extends ListViewDelegate {
     }
 
     print(content: string) {
-        this.printerMgr.print(content);
+        cc.log('print: ', content);
+        // this.printerMgr.print(content);
     }
 }

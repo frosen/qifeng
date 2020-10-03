@@ -27,7 +27,9 @@ export default class TimeUpdater extends cc.Component {
         const d = new Date();
         const ymd = `${d.getFullYear()}年${d.getMonth() + 1}月${d.getDate()}日`;
         const week = `${WeekNames[d.getDay()]}`;
-        const hm = `${d.getHours()}:${d.getMinutes()}`;
+        const min = d.getMinutes();
+        const minStr = min < 10 ? '0' + String(min) : String(min);
+        const hm = `${d.getHours()}:${minStr}`;
         return `${ymd}  ${week}  ${hm}`;
     }
 }

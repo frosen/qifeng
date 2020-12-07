@@ -5,6 +5,8 @@
 
 const { ccclass, property } = cc._decorator;
 
+const SAVE_KEY = 'tableIdx';
+
 @ccclass
 export default class TableIdxCtrlr extends cc.Component {
     lbl: cc.Label = null;
@@ -31,8 +33,15 @@ export default class TableIdxCtrlr extends cc.Component {
             this.touching = false;
         });
 
-        this.closePanel();
-        this.lbl.string = String(this.idx);
+        const savedIdx = cc.sys.localStorage.getItem(SAVE_KEY);
+
+        if (!savedIdx) {
+            this.popChangePanel();
+        } else {
+            this.idx = savedIdx;
+            this.closePanel();
+            this.lbl.string = String(this.idx);
+        }
     }
 
     touchingTime: number = 0;
@@ -50,6 +59,7 @@ export default class TableIdxCtrlr extends cc.Component {
     popChangePanel() {
         this.panel.opacity = 255;
         this.panel.scaleX = 1;
+        this.lbl.string = String(this.idx);
     }
 
     closePanel() {
@@ -58,13 +68,14 @@ export default class TableIdxCtrlr extends cc.Component {
     }
 
     addIdx() {
-        this.idx++;
+        this.idx = Math.min(this.idx + 1, 99);
         this.lbl.string = String(this.idx);
+        cc.sys.localStorage.setItem(SAVE_KEY, this.idx);
     }
 
     rdcIdx() {
-        this.idx--;
-        if (this.idx < 0) this.idx = 0;
+        this.idx = Math.max(this.idx - 1, 1);
         this.lbl.string = String(this.idx);
+        cc.sys.localStorage.setItem(SAVE_KEY, this.idx);
     }
 }

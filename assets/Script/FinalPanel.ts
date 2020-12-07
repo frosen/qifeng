@@ -17,6 +17,9 @@ export default class FinalPanel extends ListViewDelegate {
     @property(cc.Button)
     btn: cc.Button = null;
 
+    @property(cc.Button)
+    closeBtn: cc.Button = null;
+
     @property(ListView)
     listView: ListView = null;
 
@@ -35,6 +38,10 @@ export default class FinalPanel extends ListViewDelegate {
 
         this.btn.node.on(cc.Node.EventType.TOUCH_END, () => {
             this.business.send();
+            this.hide();
+        });
+
+        this.closeBtn.node.on(cc.Node.EventType.TOUCH_END, () => {
             this.hide();
         });
     }

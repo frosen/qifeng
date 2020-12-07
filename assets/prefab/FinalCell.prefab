@@ -13,7 +13,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "finalCell",
+    "_name": "FinalCell",
     "_objFlags": 0,
     "_parent": null,
     "_children": [
@@ -43,7 +43,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 700,
+      "width": 1080,
       "height": 70
     },
     "_anchorPoint": {
@@ -724,8 +724,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 50,
-      "height": 40
+      "width": 60,
+      "height": 60
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -881,8 +881,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 50,
-      "height": 40
+      "width": 60,
+      "height": 60
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1049,7 +1049,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 700,
+      "width": 1080,
       "height": 70
     },
     "_anchorPoint": {
@@ -1061,7 +1061,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        350,
+        540,
         -35,
         0,
         0,

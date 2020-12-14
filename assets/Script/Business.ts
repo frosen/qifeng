@@ -308,6 +308,6 @@ export default class Business extends ListViewDelegate {
 
     print(content: string) {
         cc.log('print: ', content);
-        // this.printerMgr.print(content);
+        this.printerMgr.print(content);
     }
 }

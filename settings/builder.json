@@ -5,23 +5,23 @@
   "excludeScenes": [],
   "includeSDKBox": false,
   "orientation": {
-    "landscapeLeft": true,
-    "landscapeRight": true,
-    "portrait": false,
+    "landscapeLeft": false,
+    "landscapeRight": false,
+    "portrait": true,
     "upsideDown": false
   },
   "webOrientation": "auto",
   "inlineSpriteFrames": true,
-  "inlineSpriteFrames_native": true,
+  "inlineSpriteFrames_native": false,
   "mergeStartScene": false,
   "optimizeHotUpdate": false,
   "md5Cache": true,
-  "encryptJs": true,
+  "encryptJs": false,
   "xxteaKey": "f88fa00b-741a-40",
   "zipCompressJs": true,
   "fb-instant-games": {},
   "android": {
-    "packageName": "org.cocos2d.demo"
+    "packageName": "lly.game.qifeng"
   },
   "ios": {
     "packageName": "org.cocos2d.demo"

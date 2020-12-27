@@ -35,12 +35,10 @@ export default class ScoreIndicator extends cc.Component {
             done = false;
         });
         node.on(cc.Node.EventType.TOUCH_MOVE, (event: cc.Event.EventTouch) => {
-            console.log('STORM done ', done, idx);
             if (done) return;
             const curY = event.getLocationY();
             const startY = event.getStartLocation().y;
             const dis = curY - startY;
-            console.log('STORM ^_^ dis ', dis, idx);
             if (dis > 100) {
                 done = true;
                 nums[idx] = Math.min(nums[idx] + 1, 99);
@@ -54,8 +52,10 @@ export default class ScoreIndicator extends cc.Component {
     }
 
     clear(idx: number) {
-        this.scoreNums = [0, 0];
-        this.totalScoreNums = [0, 0];
+        this.scoreNums[0] = 0;
+        this.scoreNums[1] = 0;
+        this.totalScoreNums[0] = 0;
+        this.totalScoreNums[1] = 0;
         this.resetUI();
     }
 

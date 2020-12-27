@@ -199,6 +199,14 @@ export default class Business extends ListViewDelegate {
         this.jumpBase.addChild(subNode);
         cc.log('click cell: ', dataIdx, pos.x, pos.y);
 
+        const setGroup = (n: cc.Node) => {
+            n.groupIndex = 2;
+            for (const child of n.children) {
+                setGroup(child);
+            }
+        };
+        setGroup(subNode);
+
         const sub = subNode.getComponent(ItemCellSub);
         sub.sp.spriteFrame = this.resDict[data.imgName];
         sub.itemName.string = data.name;
@@ -312,6 +320,6 @@ export default class Business extends ListViewDelegate {
 
     print(content: string) {
         cc.log('print: ', content);
-        // this.printerMgr.print(content);
+        this.printerMgr.print(content);
     }
 }

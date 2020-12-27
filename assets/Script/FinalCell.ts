@@ -26,7 +26,12 @@ export class FinalCell extends ListViewCell {
     @property(cc.Button)
     rdcBtn: cc.Button = null;
 
-    itemData: { count: number; data: ItemInfo } = null;
+    @property(cc.Button)
+    delBtn: cc.Button = null;
+
+    addCallback: (idx: number) => void = null;
+    rdcCallback: (idx: number) => void = null;
+    delCallback: (idx: number) => void = null;
 
     onLoad() {
         super.onLoad();
@@ -34,26 +39,24 @@ export class FinalCell extends ListViewCell {
 
         this.addBtn.node.on('click', this.onAdd.bind(this));
         this.rdcBtn.node.on('click', this.onRdc.bind(this));
+        this.delBtn.node.on('click', this.onDel.bind(this));
     }
 
     setData(itemData: { count: number; data: ItemInfo }) {
-        this.itemData = itemData;
         this.nameLbl.string = itemData.data.name;
         this.priceLbl.string = '￥' + String(itemData.data.price);
         this.countLbl.string = String(itemData.count);
     }
 
     onAdd() {
-        let newCount = this.itemData.count + 1;
-        newCount = Math.min(newCount, 9);
-        this.itemData.count = newCount;
-        this.setData(this.itemData);
+        this.addCallback(this.curCellIdx);
     }
 
     onRdc() {
-        let newCount = this.itemData.count - 1;
-        newCount = Math.max(newCount, 0);
-        this.itemData.count = newCount;
-        this.setData(this.itemData);
+        this.rdcCallback(this.curCellIdx);
+    }
+
+    onDel() {
+        this.delCallback(this.curCellIdx);
     }
 }

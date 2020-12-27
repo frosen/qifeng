@@ -46,7 +46,7 @@ export default class Business extends ListViewDelegate {
     resDict: { [key: string]: cc.SpriteFrame } = {};
 
     @property(ListView)
-    listview: ListView = null;
+    listView: ListView = null;
 
     @property(cc.Prefab)
     titleCellPrefab: cc.Prefab = null;
@@ -134,7 +134,7 @@ export default class Business extends ListViewDelegate {
             }
         }
         this.itemList = itemList;
-        this.listview.resetContent();
+        this.listView.resetContent();
     }
 
     numberOfRows(listView: ListView): number {
@@ -238,6 +238,10 @@ export default class Business extends ListViewDelegate {
     }
 
     onConfirm() {
+        if (this.selectedItems.length <= 0) {
+            this.popToast('亲，您选的是寂寞吗~~');
+            return;
+        }
         this.finalPanel.show();
     }
 
@@ -308,6 +312,6 @@ export default class Business extends ListViewDelegate {
 
     print(content: string) {
         cc.log('print: ', content);
-        this.printerMgr.print(content);
+        // this.printerMgr.print(content);
     }
 }

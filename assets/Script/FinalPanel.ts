@@ -137,7 +137,7 @@ export default class FinalPanel extends ListViewDelegate {
 
     rdc(idx: number) {
         const item = this.business.selectedItems[idx];
-        item.count = Math.max(0, item.count - 1);
+        item.count = Math.max(1, item.count - 1);
         this.listView.resetContent(true);
     }
 

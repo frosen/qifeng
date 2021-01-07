@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.4",
+  "uuid": "9e2654ed-4a71-404c-b87f-400fb9b24a40",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 307,
+  "height": 245,
+  "platformSettings": {},
+  "subMetas": {
+    "xihongshi_.png": {
+      "ver": "1.0.4",
+      "uuid": "1ac3a370-55c6-4ee0-aabf-38f57d7123a7",
+      "rawTextureUuid": "9e2654ed-4a71-404c-b87f-400fb9b24a40",
+      "trimType": "custom",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 307,
+      "height": 245,
+      "rawWidth": 307,
+      "rawHeight": 245,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

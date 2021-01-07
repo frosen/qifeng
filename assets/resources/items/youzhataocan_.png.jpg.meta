@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.4",
+  "uuid": "4cba5a84-6d4d-4b6d-b2fa-17840905f2d6",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 307,
+  "height": 245,
+  "platformSettings": {},
+  "subMetas": {
+    "youzhataocan_.png": {
+      "ver": "1.0.4",
+      "uuid": "26cd112c-4511-4f08-9385-a9b6180042a9",
+      "rawTextureUuid": "4cba5a84-6d4d-4b6d-b2fa-17840905f2d6",
+      "trimType": "custom",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 307,
+      "height": 245,
+      "rawWidth": 307,
+      "rawHeight": 245,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

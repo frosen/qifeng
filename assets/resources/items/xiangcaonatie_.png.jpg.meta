@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.4",
+  "uuid": "4d0d2e6c-9791-42c9-9cb3-14c424d53e67",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 307,
+  "height": 245,
+  "platformSettings": {},
+  "subMetas": {
+    "xiangcaonatie_.png": {
+      "ver": "1.0.4",
+      "uuid": "b42b80c3-7bf9-4a3e-85db-4453b087f29a",
+      "rawTextureUuid": "4d0d2e6c-9791-42c9-9cb3-14c424d53e67",
+      "trimType": "custom",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 307,
+      "height": 245,
+      "rawWidth": 307,
+      "rawHeight": 245,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

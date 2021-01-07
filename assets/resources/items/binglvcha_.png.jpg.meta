@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.4",
+  "uuid": "f36ecd80-3592-4019-b564-49d91f34ca3d",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 307,
+  "height": 245,
+  "platformSettings": {},
+  "subMetas": {
+    "binglvcha_.png": {
+      "ver": "1.0.4",
+      "uuid": "628950f4-4eda-460c-a395-d3d3841dffb0",
+      "rawTextureUuid": "f36ecd80-3592-4019-b564-49d91f34ca3d",
+      "trimType": "custom",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 307,
+      "height": 245,
+      "rawWidth": 307,
+      "rawHeight": 245,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

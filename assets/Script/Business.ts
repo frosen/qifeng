@@ -112,6 +112,7 @@ export default class Business extends ListViewDelegate {
                 const url = urls[index];
                 const name = url.split('/')[1];
                 this.resDict[name] = frame;
+                cc.log('^_^!---', name);
             }
             this.turnList(0);
         });
@@ -175,6 +176,7 @@ export default class Business extends ListViewDelegate {
 
     setItemCellData(cell: ItemCell, sub: number, idx: number) {
         const data = this.itemList[idx];
+        cc.log('^_^!data', sub, idx, data);
         if (data) cell.setData(sub, idx, this.resDict[data.imgName], data.name, data.price);
         else cell.setData(sub, idx, null, null, 0);
     }

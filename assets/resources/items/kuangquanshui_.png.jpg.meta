@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.4",
+  "uuid": "60dfda0b-c170-4f6e-b8cd-4b7fd69b48dd",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 307,
+  "height": 245,
+  "platformSettings": {},
+  "subMetas": {
+    "kuangquanshui_.png": {
+      "ver": "1.0.4",
+      "uuid": "eb131bf9-4202-44b1-8ecb-2468b98f8ab8",
+      "rawTextureUuid": "60dfda0b-c170-4f6e-b8cd-4b7fd69b48dd",
+      "trimType": "custom",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 307,
+      "height": 245,
+      "rawWidth": 307,
+      "rawHeight": 245,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

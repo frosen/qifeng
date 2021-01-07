@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.4",
+  "uuid": "095c9eed-700f-4e42-b80c-a61d46401fb9",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 307,
+  "height": 245,
+  "platformSettings": {},
+  "subMetas": {
+    "hongtea_.png": {
+      "ver": "1.0.4",
+      "uuid": "f3235c5a-5eff-4675-b1af-c847e1ac9710",
+      "rawTextureUuid": "095c9eed-700f-4e42-b80c-a61d46401fb9",
+      "trimType": "custom",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 307,
+      "height": 245,
+      "rawWidth": 307,
+      "rawHeight": 245,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

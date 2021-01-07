@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.4",
+  "uuid": "b134d8b6-9942-4960-9941-3c52d04e0387",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 307,
+  "height": 245,
+  "platformSettings": {},
+  "subMetas": {
+    "reniunai_.png": {
+      "ver": "1.0.4",
+      "uuid": "319cfe0a-d4d1-4568-9674-7b5a0f250baf",
+      "rawTextureUuid": "b134d8b6-9942-4960-9941-3c52d04e0387",
+      "trimType": "custom",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 307,
+      "height": 245,
+      "rawWidth": 307,
+      "rawHeight": 245,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

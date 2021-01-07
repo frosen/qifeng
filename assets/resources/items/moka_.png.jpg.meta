@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.4",
+  "uuid": "d3164704-e10b-4780-bdfc-9c2559d7c379",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 307,
+  "height": 245,
+  "platformSettings": {},
+  "subMetas": {
+    "moka_.png": {
+      "ver": "1.0.4",
+      "uuid": "09287677-034b-416b-b136-9554b7a60e52",
+      "rawTextureUuid": "d3164704-e10b-4780-bdfc-9c2559d7c379",
+      "trimType": "custom",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 307,
+      "height": 245,
+      "rawWidth": 307,
+      "rawHeight": 245,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

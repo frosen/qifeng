@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.4",
+  "uuid": "bc53a83c-dbad-4290-a27f-f21212626538",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 307,
+  "height": 245,
+  "platformSettings": {},
+  "subMetas": {
+    "mmihoutao_.png": {
+      "ver": "1.0.4",
+      "uuid": "d59a95bf-3123-4610-a708-c0f284c42bbd",
+      "rawTextureUuid": "bc53a83c-dbad-4290-a27f-f21212626538",
+      "trimType": "custom",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 307,
+      "height": 245,
+      "rawWidth": 307,
+      "rawHeight": 245,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

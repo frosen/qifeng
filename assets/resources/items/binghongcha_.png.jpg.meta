@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.4",
+  "uuid": "a388ee0c-45ea-4d79-a386-6376fc4d1954",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 307,
+  "height": 245,
+  "platformSettings": {},
+  "subMetas": {
+    "binghongcha_.png": {
+      "ver": "1.0.4",
+      "uuid": "8a475021-57ae-421f-b687-c2c655c2a8ed",
+      "rawTextureUuid": "a388ee0c-45ea-4d79-a386-6376fc4d1954",
+      "trimType": "custom",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 307,
+      "height": 245,
+      "rawWidth": 307,
+      "rawHeight": 245,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

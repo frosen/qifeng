@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.4",
+  "uuid": "959ba90c-15f0-4260-98f0-267ce1014b93",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 307,
+  "height": 245,
+  "platformSettings": {},
+  "subMetas": {
+    "shengjiangcha_.png": {
+      "ver": "1.0.4",
+      "uuid": "1a87eb30-dcc4-489a-8cca-9e49d6e005df",
+      "rawTextureUuid": "959ba90c-15f0-4260-98f0-267ce1014b93",
+      "trimType": "custom",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 307,
+      "height": 245,
+      "rawWidth": 307,
+      "rawHeight": 245,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

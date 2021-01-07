@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.4",
+  "uuid": "50c23b10-441c-4ec6-870f-9f3ed3c667fc",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 307,
+  "height": 245,
+  "platformSettings": {},
+  "subMetas": {
+    "wubaotea_.png": {
+      "ver": "1.0.4",
+      "uuid": "b054c034-40e0-488d-98f5-84a118ad8421",
+      "rawTextureUuid": "50c23b10-441c-4ec6-870f-9f3ed3c667fc",
+      "trimType": "custom",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 307,
+      "height": 245,
+      "rawWidth": 307,
+      "rawHeight": 245,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.4",
+  "uuid": "491bbe71-0d62-4cba-a35c-cd11da7795fa",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 307,
+  "height": 245,
+  "platformSettings": {},
+  "subMetas": {
+    "meinianda_.png": {
+      "ver": "1.0.4",
+      "uuid": "e2d4d6e3-44a4-4994-96f1-aa9ae37db968",
+      "rawTextureUuid": "491bbe71-0d62-4cba-a35c-cd11da7795fa",
+      "trimType": "custom",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 307,
+      "height": 245,
+      "rawWidth": 307,
+      "rawHeight": 245,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

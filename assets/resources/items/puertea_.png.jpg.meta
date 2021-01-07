@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.4",
+  "uuid": "1951f3ff-1867-44ab-9113-9e78fbef178b",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 307,
+  "height": 245,
+  "platformSettings": {},
+  "subMetas": {
+    "puertea_.png": {
+      "ver": "1.0.4",
+      "uuid": "d72ec708-c666-4bc2-aeac-828f88a2ec31",
+      "rawTextureUuid": "1951f3ff-1867-44ab-9113-9e78fbef178b",
+      "trimType": "custom",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 307,
+      "height": 245,
+      "rawWidth": 307,
+      "rawHeight": 245,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

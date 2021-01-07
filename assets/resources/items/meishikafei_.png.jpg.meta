@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.4",
+  "uuid": "6c216f4a-b821-4d21-bdfa-816c5d68822c",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 307,
+  "height": 245,
+  "platformSettings": {},
+  "subMetas": {
+    "meishikafei_.png": {
+      "ver": "1.0.4",
+      "uuid": "fc30e143-87c1-44bd-8875-d52a733624c5",
+      "rawTextureUuid": "6c216f4a-b821-4d21-bdfa-816c5d68822c",
+      "trimType": "custom",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 307,
+      "height": 245,
+      "rawWidth": 307,
+      "rawHeight": 245,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

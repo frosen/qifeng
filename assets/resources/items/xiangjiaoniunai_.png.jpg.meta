@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.4",
+  "uuid": "481266c1-bf88-4c09-b8fa-e7ab18a4d6ca",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 307,
+  "height": 245,
+  "platformSettings": {},
+  "subMetas": {
+    "xiangjiaoniunai_.png": {
+      "ver": "1.0.4",
+      "uuid": "a6162d31-7f4a-483f-9962-c42098865bf8",
+      "rawTextureUuid": "481266c1-bf88-4c09-b8fa-e7ab18a4d6ca",
+      "trimType": "custom",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 307,
+      "height": 245,
+      "rawWidth": 307,
+      "rawHeight": 245,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

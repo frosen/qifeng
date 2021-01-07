@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.4",
+  "uuid": "797fce5e-5296-4b90-8e1c-25a369503163",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 307,
+  "height": 245,
+  "platformSettings": {},
+  "subMetas": {
+    "wuweizicha_.png": {
+      "ver": "1.0.4",
+      "uuid": "f143993e-2e74-4426-a6da-720f6b00d0ba",
+      "rawTextureUuid": "797fce5e-5296-4b90-8e1c-25a369503163",
+      "trimType": "custom",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 307,
+      "height": 245,
+      "rawWidth": 307,
+      "rawHeight": 245,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

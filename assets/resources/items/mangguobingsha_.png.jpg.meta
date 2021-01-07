@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.4",
+  "uuid": "58f5903a-0c2e-4fb7-a7cf-04ddaecac793",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 307,
+  "height": 245,
+  "platformSettings": {},
+  "subMetas": {
+    "mangguobingsha_.png": {
+      "ver": "1.0.4",
+      "uuid": "3048b91e-6be9-4c2a-81dd-8e3be6d8064f",
+      "rawTextureUuid": "58f5903a-0c2e-4fb7-a7cf-04ddaecac793",
+      "trimType": "custom",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 307,
+      "height": 245,
+      "rawWidth": 307,
+      "rawHeight": 245,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

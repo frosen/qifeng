@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.4",
+  "uuid": "f92192e5-e8e5-4f99-864a-41ce6eacd97b",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 307,
+  "height": 245,
+  "platformSettings": {},
+  "subMetas": {
+    "jiaotangmaqiduo_.png": {
+      "ver": "1.0.4",
+      "uuid": "ae138d61-9888-4215-9737-ca5d5c5df750",
+      "rawTextureUuid": "f92192e5-e8e5-4f99-864a-41ce6eacd97b",
+      "trimType": "custom",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 307,
+      "height": 245,
+      "rawWidth": 307,
+      "rawHeight": 245,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

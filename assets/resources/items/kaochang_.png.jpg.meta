@@ -1,6 +1,6 @@
 {
   "ver": "2.3.4",
-  "uuid": "a4a8711f-7c46-4a99-aab8-4eaabfc1978e",
+  "uuid": "21c754a3-8867-46fe-bfeb-218567369d1e",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -11,10 +11,10 @@
   "height": 245,
   "platformSettings": {},
   "subMetas": {
-    "cafe": {
+    "kaochang_.png": {
       "ver": "1.0.4",
-      "uuid": "bc23f1e1-bf35-42be-ba95-20bb49abc91f",
-      "rawTextureUuid": "a4a8711f-7c46-4a99-aab8-4eaabfc1978e",
+      "uuid": "e7e184b4-323b-4786-ba2f-7cbf6fd005f4",
+      "rawTextureUuid": "21c754a3-8867-46fe-bfeb-218567369d1e",
       "trimType": "custom",
       "trimThreshold": 1,
       "rotated": false,

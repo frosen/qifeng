@@ -46,7 +46,7 @@ export class ItemCell extends ListViewCell {
             sub.node.scaleX = 1;
             sub.sp.spriteFrame = frame;
             sub.itemName.string = name;
-            sub.price.string = '￥' + String(dataIdx);
+            sub.price.string = '￥' + String(price);
             sub.node.targetOff(sub.node);
             sub.node.on(
                 cc.Node.EventType.TOUCH_END,

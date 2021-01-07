@@ -5,7 +5,6 @@
 /library/
 /temp/
 /local/
-/build/
 
 #/////////////////////////////////////////////////////////////////////////////
 # npm files
@@ -49,3 +48,22 @@ Thumbs.db
 #//////////////////////////
 
 .vscode/
+
+#//////////////////////////
+# XCode
+#//////////////////////////
+
+xcuserdata/
+
+#//////////////////////////
+# Android Studio
+#//////////////////////////
+
+*.iml
+build/jsb-link/frameworks/cocos2d-x/cocos/platform/android/libcocos2dx/build
+build/jsb-link/frameworks/runtime-src/proj.android-studio/app/.externalNativeBuild
+build/jsb-link/frameworks/runtime-src/proj.android-studio/game/.externalNativeBuild
+
+#//////////////////////////
+# RES
+#//////////////////////////

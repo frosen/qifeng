@@ -120,6 +120,13 @@ export const itemInfos: ItemInfo[] = [
         imgName: 'hongyoubingsha_'
     },
     {
+        id: 'mitaobingcha',
+        sort: 1,
+        name: '蜜桃冰茶',
+        price: 24,
+        imgName: 'mitaobingcha'
+    },
+    {
         id: 'youzicha_',
         sort: 2,
         name: '柚子茶',
@@ -265,5 +272,12 @@ export const itemInfos: ItemInfo[] = [
         name: '水饺',
         price: 15,
         imgName: 'shuijiao_'
+    },
+    {
+        id: 'huojimian',
+        sort: 4,
+        name: '火鸡面',
+        price: 15,
+        imgName: 'huojimian'
     }
 ];

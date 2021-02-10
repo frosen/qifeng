@@ -16,9 +16,9 @@
   "mergeStartScene": false,
   "optimizeHotUpdate": false,
   "md5Cache": true,
-  "encryptJs": false,
-  "xxteaKey": "f88fa00b-741a-40",
-  "zipCompressJs": true,
+  "encryptJs": true,
+  "xxteaKey": "lly",
+  "zipCompressJs": false,
   "fb-instant-games": {},
   "android": {
     "packageName": "lly.game.qifeng"
